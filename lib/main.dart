@@ -2,6 +2,7 @@ import 'package:appdemo/provider/provider_manager.dart';
 import 'package:appdemo/router/application.dart';
 import 'package:appdemo/router/router.dart';
 import 'package:appdemo/storage/storage_manager.dart';
+import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +34,13 @@ class App extends StatelessWidget {
           title: 'Flutter',
           theme: AppTheme.lightTheme,
           onGenerateRoute:Application.router.generator,
-          home:TabNavigator()
+          home:SplashScreen.navigate(
+            backgroundColor: Colors.red,
+            name: 'assets/flare/coding.flr',
+            next: (context) => TabNavigator(),
+            until: () => Future.delayed(Duration(seconds: 3)),
+            startAnimation: 'coding',
+          ),
         ),
       ),
     );

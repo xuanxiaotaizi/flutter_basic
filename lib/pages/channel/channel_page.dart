@@ -3,6 +3,7 @@ import 'package:appdemo/model/list_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:like_button/like_button.dart';
 
 class ChannelPage extends StatefulWidget{
   @override
@@ -38,7 +39,7 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color:Colors.red,
+            border: Border.all(color: Colors.red,width: 1),
             borderRadius:BorderRadius.all(Radius.circular(8.0)),
           ),
           child: Row(
@@ -47,23 +48,16 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
               Text(
                 list[index].text,
                 style: TextStyle(
-                  color:Colors.white,
+                  color:Colors.red,
                 ),
               ),
-              IconButton(
-                icon: list[index].isLike?Icon(
-                  Icons.star_border,
-                  color: Colors.yellow,
-                ):Icon(
-                  Icons.stars,
-                  color: Colors.blue,
-                ), 
-                onPressed: (){
-                  list[index].isLike = !list[index].isLike;
-                  setState(() {
-                    
-                  });
-                }
+              LikeButton(
+                likeBuilder: (bool isLiked) {
+                  return Icon(
+                    Icons.stars,
+                    color: isLiked ? Colors.red : Colors.orange,
+                  );
+                },
               )
             ]
           ),
@@ -105,6 +99,7 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
                     },
                     itemCount: images.length,
                     loop: true,
+                    autoplay:true
                   ),
                 ),
               ),
