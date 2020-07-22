@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UserDetail extends StatefulWidget{
-  String uuid;
+  final String uuid;
   UserDetail({this.uuid});
   @override
   _UserDetailState createState() => _UserDetailState();
