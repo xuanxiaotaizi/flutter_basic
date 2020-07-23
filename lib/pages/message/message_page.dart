@@ -1,4 +1,4 @@
-import 'package:appdemo/common/ui/style.dart';
+import 'package:appdemo/common/style.dart';
 import 'package:appdemo/model/message_model.dart';
 import 'package:appdemo/pages/message/category_selector.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,7 +28,7 @@ class _MessagePageState extends State<MessagePage>{
         title: Text(
           'message',
           style: TextStyle(
-            fontSize:RjStyle.f16,
+            fontSize:Style.size16,
             color: Colors.white
           ),
         ),
@@ -48,15 +48,15 @@ class _MessagePageState extends State<MessagePage>{
               decoration:BoxDecoration(
                 color:Theme.of(context).accentColor,
                 borderRadius:BorderRadius.only(
-                topLeft:Radius.circular(RjStyle.size30),
-                topRight: Radius.circular(RjStyle.size30)
+                topLeft:Radius.circular(Style.size30),
+                topRight: Radius.circular(Style.size30)
                 )
               ),
               child: Column(
                 children:<Widget>[
                   Padding(
                     padding:EdgeInsets.symmetric(
-                      horizontal:RjStyle.space20
+                      horizontal:Style.size20
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,11 +65,11 @@ class _MessagePageState extends State<MessagePage>{
                           'Favorite Contacts',
                           style: TextStyle(
                             color: Colors.blueGrey,
-                            fontSize:RjStyle.f20
+                            fontSize:Style.size20
                           ),
                         ),
                         IconButton(
-                          iconSize: RjStyle.size30,
+                          iconSize: Style.size30,
                           color: Colors.blueGrey,
                           icon: Icon(Icons.more_horiz), 
                           onPressed: (){}
@@ -78,26 +78,26 @@ class _MessagePageState extends State<MessagePage>{
                     )
                   ),
                   Container(
-                    height:RjStyle.size120,
+                    height:Style.size100,
                     child:ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount:favorites.length,
                       itemBuilder: (BuildContext context,int index){
                         return Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal:RjStyle.space10,
+                            horizontal:Style.size10,
                           ),
                           child:Column(
                             children:<Widget>[
                               CircleAvatar(
-                                radius:RjStyle.size40,
+                                radius:Style.size40,
                                 backgroundImage: AssetImage(favorites[index].imageUrl),
                               ),
                               Text(
                                 favorites[index].name,
                                 style: TextStyle(
                                   color: Colors.blueGrey,
-                                  fontSize: RjStyle.f16
+                                  fontSize: Style.size16
                                 ),
                               )
                             ]
@@ -111,8 +111,8 @@ class _MessagePageState extends State<MessagePage>{
                       decoration:BoxDecoration(
                         color:Colors.white,
                         borderRadius:BorderRadius.only(
-                        topLeft:Radius.circular(RjStyle.size30),
-                        topRight: Radius.circular(RjStyle.size30)
+                        topLeft:Radius.circular(Style.size30),
+                        topRight: Radius.circular(Style.size30)
                         )
                       ),
                       child: ListView.builder(
@@ -130,13 +130,13 @@ class _MessagePageState extends State<MessagePage>{
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                vertical: RjStyle.space10
+                                vertical: Style.size10
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children:<Widget>[
                                   CircleAvatar(
-                                    radius: RjStyle.space30,
+                                    radius: Style.size30,
                                     backgroundImage: AssetImage(chat.sender.imageUrl),
                                   ),
                                   Column(
@@ -150,7 +150,7 @@ class _MessagePageState extends State<MessagePage>{
                                         )
                                       ),
                                       Container(
-                                        width:RjStyle.screenWidth*0.45,
+                                        width:Style.screenWidth*0.45,
                                         child:Text(
                                           chat.text,
                                           style: TextStyle(
@@ -165,7 +165,7 @@ class _MessagePageState extends State<MessagePage>{
                                     chat.time,
                                     style:TextStyle(
                                       color:Colors.black45,
-                                      fontSize: RjStyle.f16,
+                                      fontSize: Style.size16,
                                       fontWeight: FontWeight.bold
                                     )
                                   )

@@ -1,5 +1,6 @@
-import 'package:appdemo/common/http/result_data.dart';
 import 'package:dio/dio.dart';
+
+import 'result_data.dart';
 
 class ResponseInterceptors extends InterceptorsWrapper {
   @override

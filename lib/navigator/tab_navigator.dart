@@ -1,5 +1,5 @@
 
-import 'package:appdemo/common/ui/screen_adaptation.dart';
+import 'package:appdemo/common/screen_adaptation.dart';
 import 'package:appdemo/pages/channel/channel_page.dart';
 import 'package:appdemo/pages/find/find_page.dart';
 import 'package:appdemo/pages/message/message_page.dart';

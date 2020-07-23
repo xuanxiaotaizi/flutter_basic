@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:appdemo/common/ui/style.dart';
+import 'package:appdemo/common/style.dart';
 import 'package:appdemo/model/message_model.dart';
 import 'package:appdemo/model/user_model.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
       alignment: isMe ? Alignment.centerRight :Alignment.centerLeft,
       child:Container(
         constraints: BoxConstraints(
-          maxWidth: RjStyle.screenWidth*0.6,
+          maxWidth: Style.screenWidth*0.6,
           minHeight: 50,
         ),
         decoration: BoxDecoration(
@@ -69,10 +69,10 @@ class _ChatScreenState extends State<ChatScreen> {
             bottomRight: Radius.circular(15.0),
           ),
         ),
-        padding: EdgeInsets.all(RjStyle.space12),
+        padding: EdgeInsets.all(Style.size12),
         margin: EdgeInsets.only(
-          top:RjStyle.size8,
-          bottom:RjStyle.size8
+          top:Style.size8,
+          bottom:Style.size8
         ),
         child: Text(message.text),
       )
@@ -82,15 +82,15 @@ class _ChatScreenState extends State<ChatScreen> {
   _buildMessageComposer(){
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal:RjStyle.space8
+        horizontal:Style.size8
       ),
-      height: RjStyle.size80,
+      height: Style.size80,
       color: Colors.white,
       child: Row(
         children:<Widget>[
           IconButton(
             icon:Icon(Icons.photo),
-            iconSize: RjStyle.f24,
+            iconSize: Style.size24,
             color: Theme.of(context).primaryColor,
             onPressed: (){},
           ),
@@ -110,7 +110,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           IconButton(
             icon:Icon(Icons.send),
-            iconSize: RjStyle.f24,
+            iconSize: Style.size24,
             color: Theme.of(context).primaryColor,
             onPressed: (){
               print(inputText);
@@ -171,20 +171,20 @@ class _ChatScreenState extends State<ChatScreen> {
                 decoration:BoxDecoration(
                   color:Colors.white,
                   borderRadius:BorderRadius.only(
-                    topLeft:Radius.circular(RjStyle.size30),
-                    topRight:Radius.circular(RjStyle.size30)
+                    topLeft:Radius.circular(Style.size30),
+                    topRight:Radius.circular(Style.size30)
                   )
                 ),
                 child:ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(RjStyle.size30),
-                    topRight: Radius.circular(RjStyle.size30)
+                    topLeft: Radius.circular(Style.size30),
+                    topRight: Radius.circular(Style.size30)
                   ),
                   child: ListView.builder(
                     controller: _controller,
                     reverse: true,
                     padding: EdgeInsets.only(
-                      top:RjStyle.size16
+                      top:Style.size16
                     ),
                     itemCount: messages.length,
                     itemBuilder: (BuildContext context, int index){

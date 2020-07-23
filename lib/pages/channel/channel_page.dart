@@ -1,4 +1,4 @@
-import 'package:appdemo/common/ui/style.dart';
+import 'package:appdemo/common/style.dart';
 import 'package:appdemo/model/list_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
       itemCount: list.length,
       itemBuilder: (BuildContext context,int index){
         return Container(
-          width: RjStyle.screenWidth*0.6,
+          width: Style.screenWidth*0.6,
           alignment: Alignment.center,
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),

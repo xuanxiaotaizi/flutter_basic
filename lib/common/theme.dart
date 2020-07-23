@@ -1,5 +1,6 @@
-import 'package:appdemo/common/ui/style.dart';
 import 'package:flutter/material.dart';
+
+import 'style.dart';
 class AppTheme{
   static final lightTheme = ThemeData(
     primaryColor: Colors.red,
@@ -38,7 +39,7 @@ class AppTheme{
     dialogBackgroundColor: Colors.white,
     disabledColor: Colors.white30,
     dividerColor: Colors.white30,
-    errorColor: RjStyle.danger,
+    errorColor: Style.danger,
     hintColor: Colors.white30,
     indicatorColor: Colors.white,
     textSelectionColor: Colors.blue,

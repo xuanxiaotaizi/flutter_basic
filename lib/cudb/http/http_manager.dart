@@ -1,9 +1,9 @@
 import 'package:appdemo/api/api.dart';
-import 'package:appdemo/common/http/response_interceptor.dart';
-import 'package:appdemo/common/http/result_data.dart';
 import 'package:dio/dio.dart';
 import '../../constant/error_code.dart';
 import 'logs_interceptor.dart';
+import 'response_interceptor.dart';
+import 'result_data.dart';
 
 class HttpManager {
   static HttpManager _instance = HttpManager._internal();

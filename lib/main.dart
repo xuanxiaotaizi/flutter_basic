@@ -6,7 +6,7 @@ import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
-import 'common/ui/theme.dart';
+import 'common/theme.dart';
 import 'config/injector.dart';
 
 import 'navigator/tab_navigator.dart';

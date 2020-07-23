@@ -1,5 +1,4 @@
 import 'package:animations/animations.dart';
-import 'package:appdemo/common/ui/style.dart';
 import 'package:appdemo/pages/find/detail_page.dart';
 import 'package:flutter/material.dart';
 

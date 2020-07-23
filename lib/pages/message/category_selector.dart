@@ -1,4 +1,4 @@
-import 'package:appdemo/common/ui/style.dart';
+import 'package:appdemo/common/style.dart';
 import 'package:flutter/material.dart';
 
 class CategorySelector extends StatefulWidget {
@@ -12,7 +12,7 @@ class _CategorySelectorState extends State<CategorySelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: RjStyle.size90,
+      height: Style.size90,
       color: Theme.of(context).primaryColor,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -26,12 +26,12 @@ class _CategorySelectorState extends State<CategorySelector> {
             },
             child: Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: RjStyle.space20, vertical: RjStyle.space30),
+                horizontal: Style.size20, vertical: Style.size30),
             child: Text(
               categories[index],
               style: TextStyle(
                   color: index == selectedIndex ? Colors.white : Colors.white60,
-                  fontSize: RjStyle.f20,
+                  fontSize: Style.size20,
                   fontWeight: FontWeight.bold),
             ),
           ));
