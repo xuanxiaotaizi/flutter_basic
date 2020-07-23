@@ -1,6 +1,6 @@
-import 'package:appdemo/api/api.dart';
+import 'package:appdemo/common/error_code.dart';
+import 'package:appdemo/config/api_config.dart';
 import 'package:dio/dio.dart';
-import '../../constant/error_code.dart';
 import 'logs_interceptor.dart';
 import 'response_interceptor.dart';
 import 'result_data.dart';
@@ -19,7 +19,7 @@ class HttpManager {
   HttpManager._internal({String baseUrl}) {
     if (null == _dio) {
       _dio = new Dio(new BaseOptions(
-          baseUrl: Api.baseUrl, 
+          baseUrl: ApiConfig.baseUrl, 
           connectTimeout: 30000,
           receiveTimeout:30000)
         );
@@ -47,8 +47,8 @@ class HttpManager {
   //一般请求，默认域名
   HttpManager _normal() {
     if (_dio != null) {
-      if (_dio.options.baseUrl != Api.baseUrl) {
-        _dio.options.baseUrl = Api.baseUrl;
+      if (_dio.options.baseUrl != ApiConfig.baseUrl) {
+        _dio.options.baseUrl = ApiConfig.baseUrl;
       }
     }
     return this;

@@ -57,6 +57,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.6"
+  bloc:
+    dependency: "direct main"
+    description:
+      name: bloc
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -251,6 +258,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bloc:
+    dependency: "direct main"
+    description:
+      name: flutter_bloc
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.1"
   flutter_page_indicator:
     dependency: transitive
     description:
@@ -500,7 +514,7 @@ packages:
     source: hosted
     version: "3.0.13"
   provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: provider
       url: "https://pub.flutter-io.cn"
