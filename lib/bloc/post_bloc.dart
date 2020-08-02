@@ -1,11 +1,9 @@
-import 'dart:async';
-
-import 'package:appdemo/cudb/repository/post_repository.dart';
 import 'package:appdemo/model/post_model.dart';
+import 'package:appdemo/network/repository/post_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-
+import 'package:rxdart/rxdart.dart';
 part 'post_event.dart';
 part 'post_state.dart';
 
@@ -14,6 +12,17 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
   @override
   PostState get initialState => PostInitial();
+ 
+  @override
+  Stream<Transition<PostEvent, PostState>> transformEvents(
+    Stream<PostEvent> events,
+    TransitionFunction<PostEvent, PostState> transition,
+  ) {
+    return super.transformEvents(
+      events.debounceTime(const Duration(milliseconds: 500)),
+      transition,
+    );
+  }
 
   @override
   Stream<PostState> mapEventToState(

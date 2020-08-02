@@ -38,13 +38,20 @@ dependencies:
   curved_navigation_bar: ^0.3.3
   smart_flare: any
   auto_route: ^0.6.6
+  flutter_easyrefresh: ^2.1.1
+  rxdart: ^0.24.1
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
+  flutter_spinkit: "^4.1.2"
+  extended_nested_scroll_view: ^1.0.1
+  loading_more_list: any
+  floor: ^0.14.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
   auto_route_generator: ^0.6.6
+  floor_generator: ^0.14.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

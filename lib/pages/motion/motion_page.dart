@@ -1,13 +1,14 @@
 import 'package:animations/animations.dart';
-import 'package:appdemo/pages/find/detail_page.dart';
 import 'package:flutter/material.dart';
 
-class FindPage extends StatefulWidget{
+import 'detail_page.dart';
+
+class MotionPage extends StatefulWidget{
   @override
-  _FindPageState createState() => _FindPageState();
+  _MotionPageState createState() => _MotionPageState();
 }
 
-class _FindPageState extends State<FindPage>{
+class _MotionPageState extends State<MotionPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

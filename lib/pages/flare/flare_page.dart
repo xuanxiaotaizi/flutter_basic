@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_flare/smart_flare.dart';
 
-class MyPage extends StatefulWidget{
+class FlarePage extends StatefulWidget{
   @override
-  _MyPageState createState() => _MyPageState();
+  _FlarePageState createState() => _FlarePageState();
 }
 
-class _MyPageState extends State<MyPage>{
+class _FlarePageState extends State<FlarePage>{
   @override
   Widget build(BuildContext context) {
     var animationWidth = 295.0;

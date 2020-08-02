@@ -9,11 +9,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/home/home_page.dart';
 import '../pages/user/user_detail.dart';
 
 class Routes {
+  static const String homePage = '/';
   static const String userDetail = '/user-detail';
   static const all = <String>{
+    homePage,
     userDetail,
   };
 }
@@ -22,18 +25,27 @@ class Router extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
+    RouteDef(Routes.homePage, page: HomePage),
     RouteDef(Routes.userDetail, page: UserDetail),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
+    HomePage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+        settings: data,
+      );
+    },
     UserDetail: (data) {
       var args = data.getArgs<UserDetailArguments>(
         orElse: () => UserDetailArguments(),
       );
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => UserDetail(uuid: args.uuid),
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            UserDetail(uuid: args.uuid),
         settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
   };

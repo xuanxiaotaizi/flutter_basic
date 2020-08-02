@@ -1,7 +1,11 @@
+import 'package:appdemo/bloc/post_bloc.dart';
 import 'package:appdemo/common/style.dart';
 import 'package:appdemo/model/list_model.dart';
+import 'package:appdemo/model/post_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:like_button/like_button.dart';
 
@@ -9,10 +13,47 @@ class ChannelPage extends StatefulWidget{
   @override
   _ChannelPageState createState() => _ChannelPageState();
 }
+class BottomLoader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      child: Center(
+        child: SizedBox(
+          width: 33,
+          height: 33,
+          child: CircularProgressIndicator(
+            strokeWidth: 1.5,
+          ),
+        ),
+      ),
+    );
+  }
+}
+class PostWidget extends StatelessWidget {
+  final PostModel post;
 
+  const PostWidget({Key key, @required this.post}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Text(
+        '${post.id}',
+        style: TextStyle(fontSize: 10.0),
+      ),
+      title: Text(post.title),
+      isThreeLine: true,
+      subtitle: Text(post.body),
+      dense: true,
+    );
+  }
+}
 class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderStateMixin {
   TabController tabController;
   ScrollController _scrollViewController;
+  ScrollController _innerScroll;
+  PostBloc _postBloc;
   List<String> images= [
     'assets/images/image-1.jpg',
     'assets/images/image-2.jpg',
@@ -25,46 +66,80 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
   void initState(){
     super.initState();
     _scrollViewController = ScrollController(initialScrollOffset: 0.0);
+    _innerScroll = ScrollController(initialScrollOffset: 200.0);
+    _innerScroll.addListener(_onScroll);
     this.tabController = TabController(length: 4, vsync: this);
   }
-  _listBuilder(List list){
+  void _onScroll() {
+    final maxScroll = _scrollViewController.position.maxScrollExtent;
+    final currentScroll = _scrollViewController.position.pixels;
+    if (maxScroll - currentScroll <= 200) {
+      _postBloc.add(PostFetched());
+    }
+  }
+  _firstResfresh() {
     return Container(
-      margin:EdgeInsets.only(top:55),
-      child:ListView.builder(
-      itemCount: list.length,
-      itemBuilder: (BuildContext context,int index){
-        return Container(
-          width: Style.screenWidth*0.6,
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(20),
-          margin: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.red,width: 1),
-            borderRadius:BorderRadius.all(Radius.circular(8.0)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:<Widget>[
-              Text(
-                list[index].text,
-                style: TextStyle(
-                  color:Colors.red,
+      //强制撑满
+      width: double.infinity,
+      height: double.infinity,
+      child: Center(
+        child: SizedBox(
+          height: 200.0,
+          width: 300.0,
+          child: Card(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 50.0,
+                  height: 50.0,
+                  child: SpinKitFadingCube(
+                    color: Theme.of(context).primaryColor,
+                    size: 25.0,
+                  ),
                 ),
-              ),
-              LikeButton(
-                likeBuilder: (bool isLiked) {
-                  return Icon(
-                    Icons.stars,
-                    color: isLiked ? Colors.red : Colors.orange,
-                  );
-                },
-              )
-            ]
+                Container(
+                  child: Text('请稍后...'),
+                )
+              ],
+            ),
           ),
-        );
-      }
-    )
-    ); 
+        ),
+      ),
+    );
+  }
+ _blocBulider(BuildContext context) {
+    return BlocBuilder<PostBloc, PostState>(
+      builder: (context, state) {
+        if (state is PostInitial) {
+         return _firstResfresh();
+        }
+        if (state is PostFailure) {
+          return Center(
+            child: Text('failed to fetch posts'),
+          );
+        }
+        if (state is PostSuccess) {
+          if (state.posts.isEmpty) {
+            return Center(
+              child: Text('no posts'),
+            );
+          }
+          return ListView.builder(
+            controller: _innerScroll,
+            itemBuilder: (BuildContext context, int index) {
+              return index >= state.posts.length
+                  ? BottomLoader()
+                  : PostWidget(post: state.posts[index]);
+            },
+            itemCount: state.hasReachedMax
+                ? state.posts.length
+                : state.posts.length + 1,
+          );
+        }
+      },
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -134,10 +209,10 @@ class _ChannelPageState extends State<ChannelPage>  with SingleTickerProviderSta
         body: TabBarView(
           controller: this.tabController,
           children: <Widget>[
-            _listBuilder(articles),
-            _listBuilder(articles),
-            _listBuilder(articles),
-            _listBuilder(articles),
+            _blocBulider(context),
+           _blocBulider(context),
+            _blocBulider(context),
+            _blocBulider(context),
           ],
         ),
       )

@@ -1,9 +1,9 @@
 
 import 'package:appdemo/common/screen_adaptation.dart';
-import 'package:appdemo/pages/channel/channel_page.dart';
-import 'package:appdemo/pages/find/find_page.dart';
+import 'package:appdemo/pages/flare/flare_page.dart';
+import 'package:appdemo/pages/list/list_page.dart';
 import 'package:appdemo/pages/message/message_page.dart';
-import 'package:appdemo/pages/my/my_page.dart';
+import 'package:appdemo/pages/motion/motion_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -27,10 +27,10 @@ class _TabNavigatorState extends State<TabNavigator> {
       body: PageView(
         controller: _controller,
         children: <Widget>[
-          FindPage(),
-          ChannelPage(),
+          MotionPage(),
+          ListPage(),
           MessagePage(),
-          MyPage(),
+          FlarePage(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),

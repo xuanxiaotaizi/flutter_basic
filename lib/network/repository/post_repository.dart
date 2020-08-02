@@ -1,6 +1,6 @@
-import 'package:appdemo/cudb/http/http_manager.dart';
-import 'package:appdemo/cudb/http/result_data.dart';
 import 'package:appdemo/model/post_model.dart';
+import 'package:appdemo/network/http/http_manager.dart';
+import 'package:appdemo/network/http/result_data.dart';
 
 class PostRepository{
   static Future<List<PostModel>> postList (int startIndex) async {

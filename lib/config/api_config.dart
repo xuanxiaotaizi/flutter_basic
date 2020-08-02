@@ -1,3 +1,3 @@
 class ApiConfig {
-  static var baseUrl = '';
+  static var baseUrl = 'http://jsonplaceholder.typicode.com';
 }
