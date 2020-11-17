@@ -8,7 +8,7 @@ part 'post_event.dart';
 part 'post_state.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
-  PostBloc();
+  PostBloc() : super(null);
 
   @override
   PostState get initialState => PostInitial();

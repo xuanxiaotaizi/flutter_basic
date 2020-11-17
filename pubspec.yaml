@@ -40,8 +40,8 @@ dependencies:
   auto_route: ^0.6.6
   flutter_easyrefresh: ^2.1.1
   rxdart: ^0.24.1
-  bloc: ^4.0.0
-  flutter_bloc: ^4.0.0
+  bloc: ^6.0.0
+  flutter_bloc: ^6.0.0
   flutter_spinkit: "^4.1.2"
   extended_nested_scroll_view: ^1.0.1
   loading_more_list: any
@@ -52,6 +52,7 @@ dev_dependencies:
   build_runner: any
   auto_route_generator: ^0.6.6
   floor_generator: ^0.14.0
+  iconfont: ^0.7.3
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -64,7 +65,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+   
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
@@ -81,10 +82,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: iconfont
+      fonts:
+        - asset: assets/fonts/iconfont\iconfont.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

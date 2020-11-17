@@ -39,4 +39,5 @@ class Style{
   static const Color hoverSuccess = const Color(0xff19692c);
   static const Color info = const Color(0xff17a2b8);
   static const Color hoverInfo = const Color(0xff0f6674);
+  static const Color gery = const Color(0xfff2f2f2);
 }

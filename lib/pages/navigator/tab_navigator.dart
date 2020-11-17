@@ -2,7 +2,7 @@
 import 'package:appdemo/common/screen_adaptation.dart';
 import 'package:appdemo/pages/flare/flare_page.dart';
 import 'package:appdemo/pages/list/list_page.dart';
-import 'package:appdemo/pages/message/message_page.dart';
+import 'package:appdemo/pages/message/session_page.dart';
 import 'package:appdemo/pages/motion/motion_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -29,14 +29,14 @@ class _TabNavigatorState extends State<TabNavigator> {
         children: <Widget>[
           MotionPage(),
           ListPage(),
-          MessagePage(),
+          SessionPage(),
           FlarePage(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: CurvedNavigationBar(
         height: 50,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.grey,
         onTap: (index) {
           _controller.jumpToPage(index);
           setState(() {

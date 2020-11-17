@@ -1,0 +1,44 @@
+{
+  "id": "2052430",
+  "name": "flutter_basic",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16298144",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "16298145",
+      "name": "表情",
+      "font_class": "biaoqing",
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    },
+    {
+      "icon_id": "16298146",
+      "name": "禁用",
+      "font_class": "jinyong1",
+      "unicode": "e6f2",
+      "unicode_decimal": 59122
+    },
+    {
+      "icon_id": "16298149",
+      "name": "语音",
+      "font_class": "yuyin",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "16298151",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    }
+  ]
+}
